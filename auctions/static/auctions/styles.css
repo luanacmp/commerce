@@ -1,0 +1,113 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 13px !important;
+    font-weight: 400;
+    font-family: Inter, Helvetica, sans-serif;
+    background: #6a11cb;
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+}
+
+.navbar-brand span {
+    background-image: linear-gradient(45deg, #ffb3ba, #c49c6e, #bfbf76, #77b084, #ffffff, #c084fc, #db2777);
+    color: transparent!important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradientTextAnimation 2s linear infinite;
+    animation-direction: alternate;
+    background-size: 300% 100%;
+}
+
+.navbar-brand img {
+    max-width: 100px;
+}
+
+.nav-link {
+    color: white!important;
+}
+
+form .form-outline {
+    text-align: start;
+}
+
+.card {
+    border: none;
+}
+
+.listing-card .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+}
+
+.listing-card .card-body {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.bid-card {
+    color: white;
+    background: transparent;
+}
+
+.bid-product-img {
+    border-top-left-radius: 10px;
+    width: 370px;
+}
+
+.bid-card-body {
+    border-top-right-radius: 10px;
+}
+
+.bid-card-owner {
+    display: flex;
+    font-size: 1.3rem;
+}
+
+.bid-card-price h5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bid-card-price span {
+    font-size: 1.5rem;
+}
+
+.comments {
+    margin-left: 15px;
+}
+
+.comments-add button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.comments-add input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.comments,.comments .card {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.comments img {
+    object-fit: cover;
+}
+
+@keyframes gradientTextAnimation {
+    0% {
+        background-position: 0;
+    }
+    to {
+        background-position: 100%;
+    }
+}

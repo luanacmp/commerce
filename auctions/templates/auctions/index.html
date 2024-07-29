@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div>
+        <div class="col-4 mt-5">
+            <h2 class="text-white">Active Listings</h2>
+            <div class="d-block my-3">
+                <p class="m-0 mb-2 text-white">Choose a category</p>
+                <form action="{% url 'displayCategory' %}" method="POST" class="d-flex">
+                    {% csrf_token %}
+                    <select name="category" class="form-control" id="category">
+                        {% for cat in categories %}
+                            <option value="{{ cat }}">{{ cat }}</option>
+                        {% endfor %}
+                    </select> 
+                    <button type="submit" class="btn btn-outline-light ml-2">Select</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for listing in listings %}
+                <div class="col listing-card">
+                  <div class=" my-4 h-100">
+                    <img src="{{ listing.imgUrl }}" class="card-img-top" alt="{{ listing.imgUrl }}">
+                    <div class="card-body bg-dark">
+                      <h5 class="card-title text-white">{{ listing.title }}</h5>
+                      <p class="card-text text-white">{{ listing.description }}</p>
+                      <div class="d-flex justify-content-end">
+                        <a href="{% url 'listing' id=listing.id %}" class="btn btn-outline-light btn-lg px-5 mt-2">Details</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

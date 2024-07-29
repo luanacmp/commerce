@@ -1,0 +1,59 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<section class="vh-100 gradient-custom">
+    <div class="container py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <form action="{% url 'create' %}" method="post" class="pb-5">
+                {% csrf_token %}
+                <h2 class="fw-bold mb-2 text-uppercase">Create Listing</h2>
+                <p class="text-white-50 mb-5">Please enter requested data to creat a new listing!</p>
+
+                {% if message %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+  
+                <div class="form-outline form-white mb-4 text-start">
+                  <label class="form-label">Title</label>
+                  <input type="text" name="title" class="form-control form-control-lg" id="title" placeholder="Title">
+                </div>
+
+                <div class="form-outline form-white mb-4 text-start">
+                    <label class="form-label">Description</label>
+                    <input type="text" name="description" class="form-control form-control-lg" id="description" placeholder="Description">
+                </div>
+
+                <div class="form-outline form-white mb-4 text-start">
+                    <label class="form-label">Image URL</label>
+                    <input type="text" name="imgUrl" class="form-control form-control-lg" id="imgUrl" placeholder="Image URL">
+                </div>
+
+                <div class="form-outline form-white mb-4 text-start">
+                    <label class="form-label">Price</label>
+                    <input type="number" min="0" name="price" class="form-control form-control-lg" id="price" placeholder="Price">
+                </div>
+
+                <div class="form-outline form-white mb-4 text-start">
+                    <label class="form-label">Choose a category</label>
+                    <select name="category" id="category" class="form-control form-control-lg">
+                        {% for cat in categories %}
+                            <option value="{{ cat }}">{{ cat }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+  
+                <button type="submit" class="btn btn-outline-light btn-lg px-5">Create a new listing</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
